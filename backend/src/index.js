@@ -1,5 +1,5 @@
 const express = require('express')
-const routerCliente = require('./routers/clientesApiRest')
+const routerCliente = require('./routers/clientes')
 const routerProductos = require('./routers/productos')
 const routerEmpleados = require('./routers/empleados')
 const routerVentas = require('./routers/ventas')
