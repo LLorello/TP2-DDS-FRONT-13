@@ -3,9 +3,10 @@ import FiltrosClientes from './FiltrosClientes'
 import TablaClientes from './TablaClientes'
 import RegistroCliente from './RegistroCliente'
 
-import { getPeliculasAPI, addPeliculaAPI, updatePeliculaAPI, deletePeliculaAPI} from '../../services/clientes.serviceAPI.js' 
+import { getClientesAPI, addClienteAPI, updateClienteAPI, deleteClienteAPI } from '../../services/clientes.serviceAPI'
 
-export default function Peliculas() {
+export default function Clientes() {
+  //lógica del componente:
   const [rows, setRows] = useState([])
   const [action, setAction] = useState('C')
   const [item, setItem] = useState(null)
@@ -13,19 +14,18 @@ export default function Peliculas() {
 
   useEffect(() => {
     //Se dispara cuando se dibuja el componente
-    cargarPeliculas()//acá filtro queda como undefined, recupera todas las películas
+    cargarClientes()//acá filtro queda como undefined, recupera todas las películas
   }, [])
 
 
-  const cargarPeliculas = async function (filtro) {
-    const pelis = await getPeliculasAPI(filtro)
-    console.log(pelis)
+  const cargarClientes = async function (filtro) {
+    const pelis = await getClientesAPI(filtro)
     setRows(pelis)
   }
 
   //Recibimos solo un filtro, no un objeto de filtros
   const onConsultar = (filtro) => {
-    cargarPeliculas(filtro)
+    cargarClientes(filtro)
   }
 
   const onModificar = (item) => {
@@ -35,9 +35,9 @@ export default function Peliculas() {
   }
 
   const onEliminar = async (dni) => {
-    await deletePeliculaAPI(dni)
+    await deleteClienteAPI(dni)
     setAction('C')
-    cargarPeliculas()
+    cargarClientes()
   }
 
 
@@ -51,16 +51,17 @@ export default function Peliculas() {
 
   const onConfirmar = async (cliente) => {
     if (action === 'A')
-      await addPeliculaAPI(cliente)
+      await addClienteAPI(cliente)
     else
-      await updatePeliculaAPI(cliente)
+      await updateClienteAPI(cliente)
 
-    cargarPeliculas()
+    cargarClientes()
     setAction('C')
   }
 
 
-  return (   
+  return (
+    //jsx: (vista escrita en HTML+Js)    
     <>
       {action === 'C' && (
         <div>
@@ -72,10 +73,11 @@ export default function Peliculas() {
       {
         action !== 'C' && (
           <div>
-            <RegistroCliente onCancelar={onCancelar} onConfirmar={onConfirmar} item={item} />
+            <RegistroCliente onCancelar={onCancelar} onConfirmar={onConfirmar} item={item}></RegistroCliente>
           </div>
         )
       }
     </>
   )
 }
+

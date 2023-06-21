@@ -1,11 +1,11 @@
 const Cliente = require("../models/clientes")
 const {Op} = require("sequelize")
 
-const getClientes = async (filters) => {
+const getClientes = async (filter) => {
     const whereQuery = {}
-    if(filters){
-        if(filters.nombre){
-            whereQuery.nombre = { [Op.like]: `%${filters.nombre}%`}  
+    if(filter){
+        if(filter.nombre){
+            whereQuery.nombre = { [Op.like]: `%${filter.nombre}%`}  
         }
     }
 
