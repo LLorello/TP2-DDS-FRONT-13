@@ -43,7 +43,7 @@ export default function RegistroCliente({ onCancelar, onConfirmar, item }) {
                 onChange={(e) => {
                   setFechaCompra(e.target.value);
                 }}
-                {...register("fecha_nombre", {
+                {...register("fecha_compra", {
                   required: "El campo Fecha Compra es requerido!",
                 })}
               />
@@ -62,7 +62,7 @@ export default function RegistroCliente({ onCancelar, onConfirmar, item }) {
                 })}
               />
             </div>
-            <div className="btn-group">
+            <div className="btn-group button-group">
               <button type="submit" className="btn btn-primary">
                 Aceptar
               </button>
@@ -82,4 +82,5 @@ export default function RegistroCliente({ onCancelar, onConfirmar, item }) {
     </div>
   );
 }
+
 
