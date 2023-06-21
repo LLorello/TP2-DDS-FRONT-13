@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import {Menu} from './components/Menu';
 import { Inicio } from './components/Inicio';
-import Peliculas from './components/Peliculas';
+import Clientes from './components/clientes/Clientes';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
           <div className="divBody">
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
-              <Route path="/peliculas" element={<Peliculas />} />
+              <Route path="/clientes" element={<Clientes />} />
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function FiltrosPeliculas({ onConsultar, onNuevo }) {
     //lógica del componente:
-    const [titulo, setTitulo] = useState('')
+    const [nombre, setNombre] = useState('')
 
     return (
         //jsx: (vista escrita en HTML+Js)   
@@ -18,14 +18,14 @@ export default function FiltrosPeliculas({ onConsultar, onNuevo }) {
                                 </div>
                                 <div className='col-auto'>
                                     <input type='text'
-                                        placeholder='Título'
-                                        onChange={(event) => { setTitulo(event.target.value) }}
+                                        placeholder='Nombre'
+                                        onChange={(event) => { setNombre(event.target.value) }}
                                     >
                                     </input>
                                 </div>
                                 <div className='col-auto'>
                                     <button type='button' className='btn btn-success'
-                                        onClick={() => { onConsultar(titulo) }}//enviamos solo un filtro como una variable
+                                        onClick={() => { onConsultar(nombre) }}
                                     >
                                         Consultar
                                     </button>

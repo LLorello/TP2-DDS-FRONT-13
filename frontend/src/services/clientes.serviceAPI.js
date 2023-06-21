@@ -4,20 +4,19 @@ const API_BASE_URL = 'http://localhost:3001'
 
 async function getPeliculasAPI(filtro) {
     try {
-        const response = await axios.get(`${API_BASE_URL}/api/peliculas`, { params: { titulo: filtro } })
+        const response = await axios.get(`${API_BASE_URL}/api/clientes`, { params: { titulo: filtro } })
         console.log("la respuesta es: " + JSON.stringify(response))
         return response.data
     }
     catch (error) {
-        console.error("error en la petición a la api de get peliculas", error)
+        console.error("error en la petición a la api de get clientes", error)
         throw error
     }
 
 }
-
-async function addPeliculaAPI(pelicula) {
+async function addPeliculaAPI(cliente) {
     try {
-        const response = await axios.post(`${API_BASE_URL}/api/peliculas`, pelicula)
+        const response = await axios.post(`${API_BASE_URL}/api/clientes`, cliente)
         return response.data
     }
     catch (error) {
@@ -37,9 +36,9 @@ async function updatePeliculaAPI(pelicula) {
     }
 }
 
-async function deletePeliculaAPI(id) {
+async function deletePeliculaAPI(dni) {
     try {
-        const response = await axios.delete(`${API_BASE_URL}/api/peliculas`, {params:{Id:id}})
+        const response = await axios.delete(`${API_BASE_URL}/api/peliculas`, {params:{dni:dni}})
         return response.data
         
     }

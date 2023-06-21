@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import FiltrosPeliculas from './FiltrosPeliculas'
-import TablaPeliculas
-  from './TablaPeliculas'
-import RegistroPelicula from './RegistroPelicula'
-//import { addPelicula, getPeliculas } from '../services/peliculas.service'
-import { getPeliculasAPI, addPeliculaAPI, updatePeliculaAPI, deletePeliculaAPI } from '../services/peliculas.serviceAPI'
+import FiltrosClientes from './FiltrosClientes'
+import TablaClientes from './TablaClientes'
+import RegistroCliente from './RegistroCliente'
+
+import { getPeliculasAPI, addPeliculaAPI, updatePeliculaAPI, deletePeliculaAPI} from '../services/peliculas.serviceAPI' 
 
 export default function Peliculas() {
   //lógica del componente:
@@ -36,8 +35,8 @@ export default function Peliculas() {
     setAction('M')
   }
 
-  const onEliminar = async (id) => {
-    await deletePeliculaAPI(id)
+  const onEliminar = async (dni) => {
+    await deletePeliculaAPI(dni)
     setAction('C')
     cargarPeliculas()
   }
@@ -51,35 +50,33 @@ export default function Peliculas() {
     setItem(null)
   }
 
-  const onConfirmar = async (pelicula) => {
+  const onConfirmar = async (cliente) => {
     if (action === 'A')
-      await addPeliculaAPI(pelicula)
+      await addPeliculaAPI(cliente)
     else
-      await updatePeliculaAPI(pelicula)
+      await updatePeliculaAPI(cliente)
 
     cargarPeliculas()
     setAction('C')
   }
 
 
-  return (
-    //jsx: (vista escrita en HTML+Js)    
+  return (   
     <>
       {action === 'C' && (
         <div>
-          <FiltrosPeliculas onConsultar={onConsultar} onNuevo={onNuevo}></FiltrosPeliculas>
-          <TablaPeliculas items={rows} onModificar={onModificar} onEliminar={onEliminar}></TablaPeliculas>
+          <FiltrosClientes onConsultar={onConsultar} onNuevo={onNuevo}></FiltrosClientes>
+          <TablaClientes items={rows} onModificar={onModificar} onEliminar={onEliminar}></TablaClientes>
         </div>
       )}
 
       {
         action !== 'C' && (
           <div>
-            <RegistroPelicula onCancelar={onCancelar} onConfirmar={onConfirmar} item={item} />
+            <RegistroCliente onCancelar={onCancelar} onConfirmar={onConfirmar} item={item} />
           </div>
         )
       }
     </>
   )
 }
-
