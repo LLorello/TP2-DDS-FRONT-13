@@ -9,7 +9,7 @@ const getClientes = async (filters) => {
         }
     }
 
-    whereQuery.Eliminado = 0
+    whereQuery.eliminado = 0
 
     const resultado = await Cliente.findAll({
         where: whereQuery,
@@ -17,7 +17,7 @@ const getClientes = async (filters) => {
             'dni',
             'fecha_compra',
             'nombre',
-            'Eliminado'
+            'eliminado'
         ],
         order: [['nombre', 'ASC']]
     })
@@ -47,10 +47,10 @@ const insertarCliente = async (clienteNuevo) => {
 
 const editarCliente = async (clienteActualizar) => {
     const cliente = await Cliente.findOne({
-        where: { dni: clienteActualizar.dni, Eliminado: false },
+        where: { dni: clienteActualizar.dni, eliminado: false },
     });
     if (!cliente) {
-        throw new ResourceNotFound("Cliente no encontrado");
+        console.log("Cliente not found");
     }
 
     const updatedCliente = await Cliente.update(
@@ -63,69 +63,36 @@ const editarCliente = async (clienteActualizar) => {
             where: { dni: clienteActualizar.dni }
         });
     
-    return { dni: clienteActualizar.dni };
+    return { dni: clienteActualizar.dni};
     }
 
-/*
 
-// ====================PUT====================
-const editarPelicula = async (peliculaCmd) => {
-    const pelicula = await sequelize.models.Peliculas.findOne({
-        where: { Id: peliculaCmd.id, Eliminado: false },
+const eliminarCliente = async (dni) => {
+    const cliente = await Cliente.findOne({
+        where: { dni: dni, eliminado: false },
     });
-    if (!pelicula) {
-        throw new ResourceNotFound("Película no encontrada");
+    if (!cliente) {
+        console.log("Cliente not found");
     }
 
-    const updatedPelicula = await sequelize.models.Peliculas.update(
+    const updatedCliente= await Cliente.update(
         {
-            Titulo: peliculaCmd.titulo,
-            Director: peliculaCmd.director,
-            Genero: peliculaCmd.genero,
-            Sinopsis: peliculaCmd.sinopsis,
-            Duracion: peliculaCmd.duracion,
-            IdClasificacion: peliculaCmd.idClasificacion
+            eliminado: true
         },
         {
-            where: { Id: peliculaCmd.id }
+            where: { dni: dni}
         });
     
-    return { id: peliculaCmd.id };
+    return { updatedCliente};
 
 }
 
-/* ====================DELETE==========================
-const eliminarPelicula = async (id) => {
-    const pelicula = await sequelize.models.Peliculas.findOne({
-        where: { Id: id, Eliminado: false },
-    });
-    if (!pelicula) {
-        throw new ResourceNotFound("Película no encontrada");
-    }
-
-    const updatedPelicula = await sequelize.models.Peliculas.update(
-        {
-            Eliminado: true
-        },
-        {
-            where: { Id: id}
-        });
-    
-    return { updatedPelicula};
-
-}
-
-const peliculasService = {
-    getPeliculas,
-    insertarPelicula,
-    editarPelicula,
-    eliminarPelicula
-}
-*/
 const clientesService = {
     getClientes,
     insertarCliente,
     editarCliente,
+    eliminarCliente
+
 }
 
 module.exports= clientesService;
