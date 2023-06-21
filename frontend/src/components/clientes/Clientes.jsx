@@ -3,10 +3,9 @@ import FiltrosClientes from './FiltrosClientes'
 import TablaClientes from './TablaClientes'
 import RegistroCliente from './RegistroCliente'
 
-import { getPeliculasAPI, addPeliculaAPI, updatePeliculaAPI, deletePeliculaAPI} from '../services/peliculas.serviceAPI' 
+import { getPeliculasAPI, addPeliculaAPI, updatePeliculaAPI, deletePeliculaAPI} from '../../services/clientes.serviceAPI.js' 
 
 export default function Peliculas() {
-  //lógica del componente:
   const [rows, setRows] = useState([])
   const [action, setAction] = useState('C')
   const [item, setItem] = useState(null)

@@ -25,25 +25,25 @@ async function addPeliculaAPI(cliente) {
     }
 }
 
-async function updatePeliculaAPI(pelicula) {
+async function updatePeliculaAPI(cliente) {
     try {
-        const response = await axios.put(`${API_BASE_URL}/api/peliculas`, pelicula)
+        const response = await axios.put(`${API_BASE_URL}/api/clientes`, cliente)
         return response.data
     }
     catch (error) {
-        console.error("Error. No se pudo actualizar la película!", error)
+        console.error("Error. No se pudo actualizar el cliente", error)
         throw error
     }
 }
 
 async function deletePeliculaAPI(dni) {
     try {
-        const response = await axios.delete(`${API_BASE_URL}/api/peliculas`, {params:{dni:dni}})
+        const response = await axios.delete(`${API_BASE_URL}/api/clientes`, {params:{dni:dni}})
         return response.data
         
     }
     catch (error) {
-        console.error("Error. No se pudo eliminar la película!", error)
+        console.error("Error. No se pudo eliminar el cliente", error)
         throw error
     }
 }

@@ -1,79 +1,48 @@
-const Router = require('express')
-const Cliente = require("../models/clientes")
-
+const Router = require("express")
+const clientesService = require("../service/clientes.service.js") ;
 const routerCliente = Router();
 
-
-routerCliente.put('/api/clientes', async (req,res) => {
-    const {dni} = req.query
-    const {nombre} = req.query
-    const {fecha_compra} = req.query
-
-        const cliente = await Cliente.findOne({where: {dni: dni}})
-        if(cliente){
-            cliente.nombre = nombre
-            cliente.fecha_compra = fecha_compra
-            await cliente.save()
-            res.status(200).json(cliente)
-        }else{
-            res.status(404).json({mensaje: "Post no encontrado"})
-        }
-
-      
-});
-
-routerCliente.get('/api/clientes', async (req,res) => {
-    let where = {};
-    if (req.query.nombre != undefined && req.query.nombre !== "") {
-        where.dni = req.query.nombre
-    }
-
-    let clientes = await Cliente.findAll({
-        attributes: [
-        "dni",
-        "fecha_compra",
-        "nombre",
-        ],
-        where,
-    });
-
+routerCliente.get("/api/clientes", async (req, res) => {
+    const clientes = await clientesService.getClientes(req.query);
     res.json(clientes);
-      
-});
-
-routerCliente.post('/api/clientes', async(req, res) => {
-    
-    try{
-        const data = {
-            dni: req.query.dni,
-            fecha_compra: req.query.fecha_compra,
-            nombre: req.query.nombre,
-        };
-        
-        const clienteNuevo = await Cliente.create(data);
-        
-        res.json(clienteNuevo);
-
-    }catch(err) {
-        console.error(err);
-    }
- 
-});
-
-routerCliente.delete('/api/clientes', async(req, res) => {
-    
-    const cliente = await Cliente.findOne({
-        where: {
-            dni:req.query.dni
-        }
-    });
-
-    res.json(cliente)
-    
-    if (cliente){
-        await cliente.destroy();
-    }
 })
 
+
+routerCliente.post('/api/clientes', async (req, res) => {
+    const cliente = await clientesService.insertarCliente(req.body)
+    return res.json(cliente);
+});
+
+
+routerCliente.put("/api/clientes", async (req, res) => {
+    try {
+        console.log(req.body)
+        const cliente = await clientesService.editarCliente(req.body)
+        return res.json(cliente);
+    } catch (err) {
+        console.error(err);
+    }
+})
+/*
+
+routerCliente.delete("/api/clientes", async (req, res) => {
+    try {
+        const { Id } = req.query
+        const pelicula = await peliculasService
+            .eliminarPelicula(Id)
+        return res.json(pelicula);
+    } catch (err) {
+        if (err instanceof ResourceNotFound)
+            return res.status(err.status)
+                .json({ error: err.message })
+        if (err instanceof ValidationError) {
+            return res.status(400)
+                .json({ error: err.message })
+        }
+        return res.status(500)
+            .json({ error: 'Error imprevisto. Intente nuevamente' })
+    }
+})
+*/
 
 module.exports = routerCliente

@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 
 export default function FiltrosPeliculas({ onConsultar, onNuevo }) {
-    //lógica del componente:
     const [nombre, setNombre] = useState('')
 
-    return (
-        //jsx: (vista escrita en HTML+Js)   
+    return (  
         <div className='container'>
             <div className='row'>
                 <div className='col-12'>
