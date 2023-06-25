@@ -2,7 +2,7 @@ const DataTypes = require("sequelize");
 const sequelize = require("../data/config");
 
 const Empleado = sequelize.define(
-    "Empleados",
+    "Empleado",
     {
         legajo: {
           type: DataTypes.INTEGER,
