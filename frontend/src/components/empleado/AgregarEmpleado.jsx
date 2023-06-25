@@ -53,30 +53,5 @@ const AgregarEmpleado = () => {
     </div>
   );
 
-  return (
-    <div>
-      <h2>Agregar Empleado</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Legajo:
-          <input type="text" name="legajo" value={legajo} onChange={handleInputChange} />
-        </label>
-        <label>
-          Nombre:
-          <input type="text" name="nombre" value={nombre} onChange={handleInputChange} />
-        </label>
-        <label>
-          Fecha de Nacimiento:
-          <input
-            type="date"
-            name="nacimiento"
-            value={nacimiento}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">Agregar</button>
-      </form>
-    </div>
-  );
 };
 export default AgregarEmpleado;
