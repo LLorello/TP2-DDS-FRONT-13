@@ -1,5 +1,5 @@
 const Router = require('express')
-const Producto = require('../models/productos');
+const Producto = require('../models/productos')
 const { getProductsByFilter, getProductsById, getAllProductsByFilter } = require('../services/productos.service');
 
 const routerProductos = Router();
@@ -22,12 +22,13 @@ routerProductos.get('/:filtro', async (req,res) => {
     res.json(productos)
 })
 
-routerProductos.put('/:id', async (req,res) => {
-    const producto = await getProductsById(req.params.id)
+routerProductos.put('/', async (req,res) => {
+
+    const { id, nombre, precio, vencimiento } = req.body
+    const producto = await getProductsById(id)
 
     console.log(producto)
 
-    const { nombre, precio, vencimiento } = req.body
     if(nombre){ producto.nombre = nombre }
     if(precio){ producto.precio = precio }
     if(vencimiento){producto.vencimiento = vencimiento }
@@ -53,14 +54,15 @@ routerProductos.post('/', async (req,res) => {
     res.status(200)
 })
 
-routerProductos.delete('/:id', async (req,res) => {
-    const producto = await getProductsById(req.params.id)
+routerProductos.delete('/', async (req,res) => {
+    console.log("Body: "+JSON.stringify(req.body))
+    const { id } = req.body
+    console.log("Id:"+id)
+    const producto = await getProductsById(id)
     if(producto){
         producto.eliminado = 1
     }
-    
     producto.save()
-
     res.status(200)
     res.json(producto)
 })

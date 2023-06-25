@@ -4,10 +4,12 @@ const routerProductos = require('./routers/productos')
 const routerEmpleados = require('./routers/empleados')
 const routerVentas = require('./routers/ventas')
 const routerProveedores = require('./routers/proveedores')
+const cors = require("cors")
 
 
 const app = express();
 app.use(express.json())
+app.use(cors())
 
 
 app.use('/', routerCliente)
