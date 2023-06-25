@@ -7,7 +7,7 @@ import {
   addProductos,
   updateProducto,
   deleteProducto,
-} from "../services/productos.service.js";
+} from "../../services/productos.service";
 
 function Productos() {
   const [lista, setLista] = useState([]);

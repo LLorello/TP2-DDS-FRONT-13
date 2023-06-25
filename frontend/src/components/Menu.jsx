@@ -27,7 +27,7 @@ function Menu() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/peliculas">
+              <NavLink className="nav-link" to="/productos">
                 Productos
               </NavLink>
             </li>
@@ -38,4 +38,4 @@ function Menu() {
   );
 }
 
-export {Menu};
+export { Menu };
