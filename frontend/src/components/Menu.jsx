@@ -27,6 +27,7 @@ function Menu() {
               </NavLink>
             </li>
             <li className="nav-item">
+<<<<<<< HEAD
               <NavLink className="nav-link" to="/productos">
                 Productos
               </NavLink>
@@ -39,6 +40,10 @@ function Menu() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/empleados">
                 Empleados
+=======
+              <NavLink className="nav-link" to="/clientes">
+                Clientes
+>>>>>>> 85625
               </NavLink>
             </li>
           </ul>

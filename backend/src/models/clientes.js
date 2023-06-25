@@ -15,6 +15,17 @@ const Cliente = sequelize.define(
         nombre: { 
             type: DataTypes.STRING, 
             allowNull: false
+        },
+        eliminado: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: 'El estado eliminado es requerido.'
+                }
+            }
         }
     },
     {
