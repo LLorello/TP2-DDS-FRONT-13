@@ -14,10 +14,10 @@ function App() {
           <Menu />
           <div className="container">
             <Routes>
-              <Route exact path="/" element={<Inicio />} />
-              <Route exact path="/empleados" element={<Empleados />} />
-              <Route exact path="/empleados/agregar" element={<AgregarEmpleado />} />
-              <Route exact path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
+              <Route path="/inicio" element={<Inicio />} />
+              <Route path="/empleados" element={<Empleados />} />
+              <Route path="/empleados/agregar" element={<AgregarEmpleado />} />
+              <Route path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>
