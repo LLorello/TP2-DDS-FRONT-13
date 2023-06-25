@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import {Menu} from './components/Menu';
-import { Inicio } from './components/Inicio';
-import Peliculas from './components/Peliculas';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Inicio } from './components/Inicio';
+import {Menu} from './components/Menu';
+
+
 
 function App() {
   return (
@@ -14,7 +14,9 @@ function App() {
           <div className="divBody">
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
-              <Route path="/peliculas" element={<Peliculas />} />
+              <Route exact path="/empleados" element={<Empleados />} />
+              <Route exact path="/empleados/agregar" element={<AgregarEmpleado />} />
+              <Route exact path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>
