@@ -25,6 +25,7 @@ const AgregarEmpleado = () => {
     const empleado = { legajo, nombre, nacimiento };
     try {
       await axios.post('http://localhost:3001/api/empleados', empleado);
+      console.log()
       alert('Empleado agregado exitosamente');
       navigate('/empleados');
     } catch (error) {
