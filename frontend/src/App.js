@@ -1,10 +1,6 @@
 import './App.css';
 import {Menu} from './components/Menu';
 import { Inicio } from './components/Inicio';
-<<<<<<< HEAD
-=======
-import Clientes from './components/clientes/Clientes';
->>>>>>> 85625
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Productos from './components/productos/Productos';
 import Ventas from './components/ventas/Ventas';
@@ -21,15 +17,11 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
-<<<<<<< HEAD
               <Route path="/productos" element={<Productos />} />
               <Route path="/ventas" element={<Ventas />} />
               <Route path="/empleados" element={<Empleados />} />
               <Route path="/empleados/agregar" element={<AgregarEmpleado />} />
               <Route path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
-=======
-              <Route path="/clientes" element={<Clientes />} />
->>>>>>> 85625
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>
