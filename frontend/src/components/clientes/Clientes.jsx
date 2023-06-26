@@ -50,10 +50,12 @@ export default function Clientes() {
   }
 
   const onConfirmar = async (cliente) => {
-    if (action === 'A')
+    if (action === 'N'){
       await addClienteAPI(cliente)
-    else
+    }else{
       await updateClienteAPI(cliente)
+    }
+      
 
     cargarClientes()
     setAction('C')

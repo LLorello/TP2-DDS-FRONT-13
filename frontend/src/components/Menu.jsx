@@ -1,4 +1,5 @@
 import React from "react";
+import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 function Menu() {
@@ -27,7 +28,6 @@ function Menu() {
               </NavLink>
             </li>
             <li className="nav-item">
-<<<<<<< HEAD
               <NavLink className="nav-link" to="/productos">
                 Productos
               </NavLink>
@@ -38,12 +38,13 @@ function Menu() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/empleados">
+              <NavLink className="nav-link" to="/empleados" >
                 Empleados
-=======
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/clientes">
                 Clientes
->>>>>>> 85625
               </NavLink>
             </li>
           </ul>

@@ -1,6 +1,7 @@
 import './App.css';
 import {Menu} from './components/Menu';
 import { Inicio } from './components/Inicio';
+import Clientes from './components/clientes/Clientes';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Productos from './components/productos/Productos';
 import Ventas from './components/ventas/Ventas';
@@ -22,6 +23,7 @@ function App() {
               <Route path="/empleados" element={<Empleados />} />
               <Route path="/empleados/agregar" element={<AgregarEmpleado />} />
               <Route path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
+              <Route path="/clientes" element={<Clientes />} />
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>
