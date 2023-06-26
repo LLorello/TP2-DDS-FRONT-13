@@ -25,19 +25,18 @@ function TablaProductos({ lista, onModificar, onEliminar }) {
                         <td>{e.nombre}</td>
                         <td>{e.precio}</td>
                         <td>{e.vencimiento}</td>
-                        <td>
+                        <td className="btn-group button-group">
                           <button
-                            className="btn btn-info btn-sm"
+                            className="btn btn-info"
                             onClick={() => {
                               onModificar(e);
                             }}
                           >
                             M
                           </button>
-                        </td>
-                        <td>
+
                           <button
-                            className="btn btn-danger btn-sm"
+                            className="btn btn-danger"
                             onClick={() => {
                               onEliminar(e);
                             }}

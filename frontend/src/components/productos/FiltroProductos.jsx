@@ -13,7 +13,7 @@ function FiltroProductos({ onBuscar, onRegistrar }) {
               <form onSubmit={handleSubmit(onBuscar)}>
                 <h5 className="card-title">Filtros</h5>
                 <div className="row">
-                  <div className="col-auto">Titulo</div>
+                  <div className="col-auto">Producto</div>
                   <div className="col-auto">
                     <input
                       type="text"
