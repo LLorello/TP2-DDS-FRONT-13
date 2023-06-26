@@ -47,6 +47,11 @@ function Menu() {
                 Clientes
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/proveedores">
+                Proveedores
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

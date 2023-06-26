@@ -9,6 +9,7 @@ import React from 'react';
 import  Empleados  from './components/empleado/Empleados';
 import  AgregarEmpleado  from './components/empleado/AgregarEmpleado';
 import  EditarEmpleado from './components/empleado/EditarEmpleado';
+import Proveedores from './components/proveedores/Proveedores';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/empleados/agregar" element={<AgregarEmpleado />} />
               <Route path="/empleados/editar/:legajo" element={<EditarEmpleado />} />
               <Route path="/clientes" element={<Clientes />} />
+              <Route path="/proveedores" element={<Proveedores />} />
               <Route path="*" element={<Navigate to="/inicio" replace />} />
             </Routes>
           </div>
