@@ -16,6 +16,9 @@ const Venta = sequelize.define(
         tipoFactura: { 
             type: DataTypes.STRING, 
             allowNull: false, 
+        },
+        eliminado: {
+            type: DataTypes.INTEGER,
         }
     },
     {

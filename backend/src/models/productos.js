@@ -20,6 +20,9 @@ const Producto = sequelize.define(
         vencimiento: { 
             type: DataTypes.DATEONLY, 
             allowNull: false,
+        },
+        eliminado: {
+            type: DataTypes.INTEGER,
         }
 
     },

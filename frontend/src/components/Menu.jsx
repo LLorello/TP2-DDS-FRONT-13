@@ -27,8 +27,23 @@ function Menu() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/peliculas">
-                Peliculas
+<<<<<<< HEAD
+              <NavLink className="nav-link" to="/productos">
+                Productos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/ventas">
+                Ventas
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/empleados">
+                Empleados
+=======
+              <NavLink className="nav-link" to="/clientes">
+                Clientes
+>>>>>>> 85625
               </NavLink>
             </li>
           </ul>
@@ -38,4 +53,4 @@ function Menu() {
   );
 }
 
-export {Menu};
+export { Menu };
