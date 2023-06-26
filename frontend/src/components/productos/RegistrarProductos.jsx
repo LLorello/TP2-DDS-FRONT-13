@@ -50,7 +50,7 @@ function RegistrarProductos({
             <div className="form-group">
               <label htmlFor="vencimiento">Vencimiento(*):</label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="vencimiento"
                 {...register("vencimiento", {
