@@ -1,5 +1,5 @@
 const Router = require("express")
-const clientesService = require("../service/clientes.service.js") ;
+const clientesService = require("../services/clientes.service.js") ;
 const routerCliente = Router();
 
 routerCliente.get("/api/clientes", async (req, res) => {

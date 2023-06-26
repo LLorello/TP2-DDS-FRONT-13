@@ -31,7 +31,7 @@ export default function TablaClientes({ items, onModificar, onEliminar }) {
                           <button
                             className="btn btn-sm btn-outline-primary"
                             title="Modificar"
-                            disabled={item.eliminado == 1}
+                            disabled={item.eliminado === 1}
                             onClick={() => onModificar(item)}
                           >
                             <i className="fa fa-pencil"></i>
@@ -41,7 +41,7 @@ export default function TablaClientes({ items, onModificar, onEliminar }) {
                           <button
                             className="btn btn-sm btn-outline-danger"
                             title="Eliminar"
-                            disabled={item.eliminado == 1}
+                            disabled={item.eliminado === 1}
                             onClick={() => {
                               if (
                                 window.confirm("Seguro que desea eliminar?")
